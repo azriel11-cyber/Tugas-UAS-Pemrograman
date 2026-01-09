@@ -1,0 +1,12 @@
+Masukkan NIM          : 20231234
+Masukkan Nama         : Fadhil
+Masukkan Nilai Tugas  : 80
+Masukkan Nilai UTS    : 85
+Masukkan Nilai UAS    : 90
+
+=== HASIL NILAI MAHASISWA ===
+-----------------------------------------------------------------
+| NIM | Nama | Tugas | UTS | UAS | Nilai Akhir |
+-----------------------------------------------------------------
+| 20231234 | Fadhil | 80.0 | 85.0 | 90.0 | 85.50 |
+-----------------------------------------------------------------
