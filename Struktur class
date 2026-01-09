@@ -1,0 +1,3 @@
+- MahasiswaData     → menyimpan data
+- MahasiswaProcess  → proses perhitungan & validasi
+- MahasiswaView     → input & output (tampilan)
