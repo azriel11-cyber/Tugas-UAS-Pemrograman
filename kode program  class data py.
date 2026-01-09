@@ -1,0 +1,70 @@
+# =======================
+# Class Data
+# =======================
+class MahasiswaData:
+    def __init__(self, nim, nama, tugas, uts, uas):
+        self.nim = nim
+        self.nama = nama
+        self.tugas = tugas
+        self.uts = uts
+        self.uas = uas
+        self.nilai_akhir = 0
+
+
+# =======================
+# Class Process
+# =======================
+class MahasiswaProcess:
+    def hitung_nilai_akhir(self, mahasiswa):
+        mahasiswa.nilai_akhir = (
+            0.3 * mahasiswa.tugas +
+            0.3 * mahasiswa.uts +
+            0.4 * mahasiswa.uas
+        )
+
+
+# =======================
+# Class View
+# =======================
+class MahasiswaView:
+    def input_data(self):
+        try:
+            nim = input("Masukkan NIM          : ")
+            nama = input("Masukkan Nama         : ")
+
+            tugas = float(input("Masukkan Nilai Tugas  : "))
+            uts   = float(input("Masukkan Nilai UTS    : "))
+            uas   = float(input("Masukkan Nilai UAS    : "))
+
+            if not (0 <= tugas <= 100 and 0 <= uts <= 100 and 0 <= uas <= 100):
+                raise ValueError("Nilai harus antara 0 - 100")
+
+            return MahasiswaData(nim, nama, tugas, uts, uas)
+
+        except ValueError as e:
+            print("❌ Error:", e)
+            return None
+
+    def tampilkan_hasil(self, mahasiswa):
+        print("\n=== HASIL NILAI MAHASISWA ===")
+        print("-" * 65)
+        print("| NIM | Nama | Tugas | UTS | UAS | Nilai Akhir |")
+        print("-" * 65)
+        print(
+            f"| {mahasiswa.nim} | {mahasiswa.nama} | "
+            f"{mahasiswa.tugas:.1f} | {mahasiswa.uts:.1f} | "
+            f"{mahasiswa.uas:.1f} | {mahasiswa.nilai_akhir:.2f} |"
+        )
+        print("-" * 65)
+
+
+# =======================
+# Main Program
+# =======================
+view = MahasiswaView()
+process = MahasiswaProcess()
+
+mahasiswa = view.input_data()
+if mahasiswa:
+    process.hitung_nilai_akhir(mahasiswa)
+    view.tampilkan_hasil(mahasiswa)
